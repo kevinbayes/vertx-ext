@@ -36,7 +36,9 @@ public enum HttpMediaTypes {
 	APPLICATION_XML(new HttpMediaType("application", "xml", true)),
 	
 	//Text
-	TEXT_XML(new HttpMediaType("text", "xml", true));
+	TEXT_XML(new HttpMediaType("text", "xml", true)),
+	TEXT_HTML(new HttpMediaType("text", "html", true));
+
 
 	private HttpMediaType mediaType;
 	
@@ -51,7 +53,7 @@ public enum HttpMediaTypes {
 	public static HttpMediaTypes fromMediaTypeString(String mediaTypeString) {
 
 		for(HttpMediaTypes type : HttpMediaTypes.values()) {
-			if(mediaTypeString.contains(type.toString())) {
+			if(mediaTypeString.contains(type.getMediaType().toString())) {
 				return type;
 			}
 		}

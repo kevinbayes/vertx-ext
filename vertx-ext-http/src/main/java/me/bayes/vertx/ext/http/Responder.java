@@ -114,11 +114,34 @@ public class Responder implements WriteStream<Responder> {
 	public Responder internalServerError() {
 		return status(HttpResponseStatus.INTERNAL_SERVER_ERROR);
 	}
+
+	public Responder seeOther() {
+		return status(HttpResponseStatus.SEE_OTHER);
+	}
+
+	/*
+	 * Common MIME Types
+	 */
+	public Responder html() {
+		putHeader(HttpHeaders.Names.CONTENT_TYPE, HttpMediaTypes.TEXT_HTML.getMediaType().toString());
+		return this;
+	}
+
+
+	public Responder content(Object responseObject) {
+		this.responseObject = responseObject;
+		return this;
+	}
+
 	
-	public void sendResponse() throws Exception {
+	public void sendResponse() {
 		ResponseObjectWriter responseWriter = ResponseObjectWriterFactory.getInstance(response.headers().get(HttpHeaders.Names.CONTENT_TYPE));
 		if(responseWriter != null && responseObject != null) {
-			responseWriter.writeResponse(response, responseObject);
+			try {
+				responseWriter.writeResponse(response, responseObject);
+			} catch (Exception e) {
+				this.internalServerError().end();
+			}
 		} else {
 			this.internalServerError().end();
 		}

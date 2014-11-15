@@ -45,11 +45,16 @@ public abstract class ResponseObjectWriterFactory {
 		}
 		
 		final HttpMediaTypes mediaType = HttpMediaTypes.fromMediaTypeString(mediaTypeString);
+
+		System.out.print("--" + mediaTypeString + "--");
+		System.out.print("--" + mediaType + "--");
 		
 		switch(mediaType) {
 		case APPLICATION_JSON:
 		case ANY_SUB_TYPE_JSON:
 			return new JsonResponseObjectWriter();
+		case TEXT_HTML:
+			return new HtmlResponseObjectWriter();
 		default:
 			return null;
 		}
