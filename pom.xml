@@ -33,9 +33,9 @@
    		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
    		
    		<!-- Vertx -->
-		<vertx.version>2.1M2</vertx.version>
-		<vertx.test.version>2.0.2-final</vertx.test.version>
-		<vertx.testtools.version>2.0.2-final</vertx.testtools.version>
+		<vertx.version>2.1.2</vertx.version>
+		<vertx.test.version>2.0.3-final</vertx.test.version>
+		<vertx.testtools.version>2.0.3-final</vertx.testtools.version>
 		
 		<!-- JUnit -->
 		<junit.version>4.11</junit.version>
@@ -124,4 +124,18 @@
   </modules>
   
   <description>This will one day be moved to vest as vest evolves into a full rest api framework.</description>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
 </project>
