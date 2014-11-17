@@ -123,8 +123,18 @@ public class Responder implements WriteStream<Responder> {
 	 * Common MIME Types
 	 */
 	public Responder html() {
-		putHeader(HttpHeaders.Names.CONTENT_TYPE, HttpMediaTypes.TEXT_HTML.getMediaType().toString());
-		return this;
+		return putHeader(HttpHeaders.Names.CONTENT_TYPE, HttpMediaTypes.TEXT_HTML.getMediaType().toString());
+	}
+
+	public Responder json() {
+		return putHeader(HttpHeaders.Names.CONTENT_TYPE, HttpMediaTypes.APPLICATION_JSON.getMediaType().toString());
+	}
+
+	/*
+	 * Common headers
+	 */
+	public Responder location(String url) {
+		return putHeader(HttpHeaders.Names.LOCATION, url);
 	}
 
 
