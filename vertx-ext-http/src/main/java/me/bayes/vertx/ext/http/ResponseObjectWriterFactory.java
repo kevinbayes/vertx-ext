@@ -35,7 +35,7 @@ public abstract class ResponseObjectWriterFactory {
 	private ResponseObjectWriterFactory() { }
 	
 	/**
-	 * @param media type to try find a response object writer
+	 * @param mediaTypeString type to try find a response object writer
 	 * @return a response object writer or null
 	 */
 	public static ResponseObjectWriter getInstance(String mediaTypeString) {

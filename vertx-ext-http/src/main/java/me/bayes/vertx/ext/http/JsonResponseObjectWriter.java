@@ -15,8 +15,8 @@
  */
 package me.bayes.vertx.ext.http;
 
-import org.vertx.java.core.http.HttpServerResponse;
-import org.vertx.java.core.json.JsonObject;
+import io.vertx.core.http.HttpServerResponse;
+import io.vertx.core.json.JsonObject;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;

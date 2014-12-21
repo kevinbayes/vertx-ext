@@ -1,7 +1,7 @@
 package me.bayes.vertx.ext.http;
 
-import org.vertx.java.core.http.HttpServerResponse;
-import org.vertx.java.core.json.JsonObject;
+
+import io.vertx.core.http.HttpServerResponse;
 
 /**
  * <p>

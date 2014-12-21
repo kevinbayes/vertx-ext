@@ -18,12 +18,12 @@ package me.bayes.vertx.ext.http;
 import io.netty.handler.codec.http.HttpHeaders;
 import io.netty.handler.codec.http.HttpResponseStatus;
 
-import org.vertx.java.core.AsyncResult;
-import org.vertx.java.core.Handler;
-import org.vertx.java.core.MultiMap;
-import org.vertx.java.core.buffer.Buffer;
-import org.vertx.java.core.http.HttpServerResponse;
-import org.vertx.java.core.streams.WriteStream;
+import io.vertx.core.AsyncResult;
+import io.vertx.core.Handler;
+import io.vertx.core.MultiMap;
+import io.vertx.core.buffer.Buffer;
+import io.vertx.core.http.HttpServerResponse;
+import io.vertx.core.streams.WriteStream;
 
 /**
  * <p>
@@ -48,7 +48,6 @@ public class Responder implements WriteStream<Responder> {
 	 * private as the creation is left to the factory method.
 	 * </p>
 	 * 
-	 * @param request
 	 * @param response
 	 */
 	public Responder(final HttpServerResponse response) {
@@ -58,7 +57,7 @@ public class Responder implements WriteStream<Responder> {
 	
 	/**
 	 * <p>
-	 * Raw set status based on the http status codes found in {@link Status}.
+	 * Raw set status based on the http status codes found in {@link me.bayes.vertx.ext.http.StatusClass}.
 	 * </p>
 	 * 
 	 * @param code
@@ -163,6 +162,11 @@ public class Responder implements WriteStream<Responder> {
 	public Responder exceptionHandler(Handler<Throwable> handler) {
 		response.exceptionHandler(handler);
 		return this;
+	}
+
+	@Override
+	public WriteStream<Responder> write(Responder responder) {
+		return null;
 	}
 
 	public Responder setWriteQueueMaxSize(int maxSize) {
@@ -275,11 +279,6 @@ public class Responder implements WriteStream<Responder> {
 		return this;
 	}
 
-	public Responder sendFile(String filename, String notFoundFile) {
-		response.sendFile(filename, notFoundFile);
-		return this;
-	}
-
 	public Responder sendFile(String filename,
 			Handler<AsyncResult<Void>> resultHandler) {
 		response.sendFile(filename,
@@ -289,7 +288,7 @@ public class Responder implements WriteStream<Responder> {
 
 	public Responder sendFile(String filename, String notFoundFile,
 			Handler<AsyncResult<Void>> resultHandler) {
-		response.sendFile(filename, notFoundFile,
+		response.sendFile(filename,
 				resultHandler);
 		return this;
 	}

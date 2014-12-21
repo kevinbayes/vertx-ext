@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>me.bayes</groupId>
   <artifactId>vertx-ext</artifactId>
-  <version>1.0.3-SNAPSHOT</version>
+  <version>1.0.4-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>Vertx Extensions</name>
   
@@ -33,10 +33,8 @@
    		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
    		
    		<!-- Vertx -->
-		<vertx.version>2.1.2</vertx.version>
-		<vertx.test.version>2.0.3-final</vertx.test.version>
-		<vertx.testtools.version>2.0.3-final</vertx.testtools.version>
-		
+		<vertx.version>3.0.0-dev_preview1</vertx.version>
+
 		<!-- JUnit -->
 		<junit.version>4.11</junit.version>
 		
@@ -54,24 +52,19 @@
 
 			<dependency>
 				<groupId>io.vertx</groupId>
+				<artifactId>vertx-core</artifactId>
+				<version>${vertx.version}</version>
+				<type>test-jar</type>
+				<scope>test</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>io.vertx</groupId>
 				<artifactId>vertx-hazelcast</artifactId>
 				<version>${vertx.version}</version>
 				<scope>provided</scope>
 			</dependency>
 
-			<dependency>
-				<groupId>io.vertx</groupId>
-				<artifactId>vertx-platform</artifactId>
-				<version>${vertx.version}</version>
-				<scope>provided</scope>
-			</dependency>
-
-			<dependency>
-				<groupId>io.vertx</groupId>
-				<artifactId>testtools</artifactId>
-				<version>${vertx.test.version}</version>
-				<scope>test</scope>
-			</dependency>
 
 			<!-- junit -->
 			<dependency>
@@ -91,22 +84,11 @@
 			<artifactId>vertx-core</artifactId>
 			<scope>provided</scope>
 		</dependency>
-	
+
 		<dependency>
 			<groupId>io.vertx</groupId>
-			<artifactId>vertx-hazelcast</artifactId>
-			<scope>provided</scope>
-		</dependency>
-	
-		<dependency>
-			<groupId>io.vertx</groupId>
-			<artifactId>vertx-platform</artifactId>
-			<scope>provided</scope>
-		</dependency>
-	
-		<dependency>
-			<groupId>io.vertx</groupId>
-			<artifactId>testtools</artifactId>
+			<artifactId>vertx-core</artifactId>
+			<type>test-jar</type>
 			<scope>test</scope>
 		</dependency>
 	

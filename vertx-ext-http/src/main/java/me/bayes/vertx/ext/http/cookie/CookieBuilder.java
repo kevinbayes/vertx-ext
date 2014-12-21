@@ -1,7 +1,7 @@
 package me.bayes.vertx.ext.http.cookie;
 
-import org.vertx.java.core.http.HttpHeaders;
-import org.vertx.java.core.http.HttpServerResponse;
+import io.vertx.core.http.HttpHeaders;
+import io.vertx.core.http.HttpServerResponse;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;

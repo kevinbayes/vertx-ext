@@ -15,7 +15,7 @@
  */
 package me.bayes.vertx.ext.http;
 
-import org.vertx.java.core.http.HttpServerResponse;
+import io.vertx.core.http.HttpServerResponse;
 
 /**
  * A {@link ResponseObjectWriter} takes an object and makes the body of the HTTP Response
@@ -27,7 +27,7 @@ import org.vertx.java.core.http.HttpServerResponse;
 public interface ResponseObjectWriter {
 	
 	/**
-	 * @param vertx http response object
+	 * @param response http response object
 	 * @param object to form the body of the response.
 	 */
 	void writeResponse(HttpServerResponse response, Object object) throws Exception;
